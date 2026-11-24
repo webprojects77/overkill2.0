@@ -1,0 +1,15 @@
+const fs=require("fs"),path=require("path");
+const {harness,root}=require("./helpers"),stamp=require("../scripts/stamp");
+const T=harness(),rd=f=>fs.readFileSync(path.join(root,f),"utf8");
+const html=rd("index.html"),sw=rd("sw.js"),files=stamp.files();
+T.ok("service worker carimbado (rode npm run stamp)",sw.includes('const V="overkill-'+stamp.hash()+'";'),stamp.hash());
+files.filter(f=>f!=="./").forEach(f=>T.ok("arquivo em cache existe: "+f,fs.existsSync(path.join(root,f))));
+const refs=[...html.matchAll(/(?:src|href)="([^"#]+)"/g)].map(m=>m[1]).filter(r=>!/^(https?:|data:|mailto:)/.test(r));
+refs.forEach(r=>{T.ok("referência existe: "+r,fs.existsSync(path.join(root,r)));T.ok("referência está no cache offline: "+r,files.includes(r))});
+const scripts=[...html.matchAll(/<script src="(src\/[^"]+)"/g)].map(m=>m[1]);
+fs.readdirSync(path.join(root,"src")).filter(f=>f.endsWith(".js")).forEach(f=>T.ok("script listado no index: "+f,scripts.includes("src/"+f)));
+T.ok("core.js vem antes dos demais",scripts[0]==="src/core.js",scripts);
+const man=JSON.parse(rd("manifest.webmanifest"));man.icons.forEach(i=>T.ok("ícone existe: "+i.src,fs.existsSync(path.join(root,i.src))));
+T.ok("manifest standalone",man.display==="standalone"&&man.start_url==="./");
+T.ok("sem chaves de API no código",!/(sk-[A-Za-z0-9]{20,}|github_pat_|AKIA[0-9A-Z]{16})/.test(fs.readdirSync(path.join(root,"src")).map(f=>rd("src/"+f)).join("\n")+html));
+T.done("projeto");
