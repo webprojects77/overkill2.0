@@ -8,7 +8,7 @@
 | `localStorage` | `src/app.js`, `src/notebook.js` | Histórico, preferências, variáveis, fórmulas e notebooks (chave `overkill:v1`) |
 | `localStorage` | `src/experience.js` | Perfil de uso, tema, densidade, favoritos e se a tela de boas-vindas já foi vista (chave `overkill:prefs:v1`). Não contém dados pessoais. |
 | Cache API / Service Worker | `sw.js` | Arquivos estáticos para uso offline |
-| Google Fonts | `index.html` | Fonte “Metal Mania” |
+| Fonte local | `fonts/`, `src/style.css` | Fonte “Metal Mania” hospedada junto da aplicação (sem requisição a terceiros) |
 
 `localStorage` e Cache API não são cookies, mas devem ser explicados quando armazenam informações no dispositivo.
 

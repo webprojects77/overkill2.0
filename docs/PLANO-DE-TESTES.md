@@ -49,7 +49,7 @@ Marque apenas após testar a versão candidata. Registre navegador, dispositivo,
 - [ ] Inspecionar cookies, localStorage, Cache API e demais armazenamentos.
 - [ ] Inspecionar todas as requisições de rede e domínios externos.
 - [ ] Confirmar dados processados pela hospedagem.
-- [ ] Confirmar status de Google Fonts e ausência/presença de analytics.
+- [ ] Confirmar ausência de requisições externas (fonte já é local) e de analytics.
 - [ ] Repetir na URL de produção.
 
 ## Registro de execução

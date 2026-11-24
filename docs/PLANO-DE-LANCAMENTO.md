@@ -10,7 +10,7 @@
 - [ ] Confirmar responsável e contato.
 - [ ] Identificar hospedagem, DNS, CDN e logs.
 - [ ] Revalidar cookies, localStorage, Cache API e requisições externas.
-- [ ] Decidir sobre Google Fonts.
+- [x] Fonte self-hosted (decisão tomada: sem Google Fonts).
 - [ ] Finalizar política de privacidade, cookies e termos.
 - [ ] Não exibir banner genérico sem identificar tecnologias que o justifiquem.
 - [ ] Revisão por adulto responsável e profissional qualificado.

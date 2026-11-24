@@ -16,8 +16,7 @@ A OVERKILL é uma aplicação matemática executada no navegador. Na versão con
 O código consultado utiliza `localStorage` para manter histórico de cálculos (até 100 entradas no código analisado), preferências, variáveis, fórmulas e notebooks. A chave `overkill:prefs:v1` guarda apenas a escolha de perfil de uso, o tema, a densidade, os módulos fixados nos favoritos e se a tela de boas-vindas já foi vista. O Service Worker/Cache API guarda arquivos da interface para permitir uso offline depois do primeiro carregamento. Esses dados permanecem no navegador até serem apagados pelo usuário, pelo navegador ou por alterações na aplicação. A persistência depende do dispositivo e das configurações do navegador.
 
 ## 4. Serviços externos
-A página consultada carrega a fonte “Metal Mania” por meio do Google Fonts. Ao solicitar esse recurso, o navegador se conecta a um terceiro, que pode receber dados técnicos da requisição, como endereço IP e informações do navegador.
-[PRECISA CONFIRMAR] Verificar se Google Fonts continuará ativo ou se a fonte será hospedada junto da aplicação. Listar aqui todos os demais serviços externos, se existirem.
+A fonte “Metal Mania” é servida junto da própria aplicação (arquivos `fonts/*.woff2`, licença SIL OFL), sem requisição ao Google Fonts ou outro terceiro. [PRECISA CONFIRMAR] Listar aqui todos os demais serviços externos, se existirem, e revalidar na URL de produção.
 
 ## 5. Hospedagem e registros técnicos
 [PRECISA CONFIRMAR] O provedor de hospedagem pode processar registros técnicos de acesso e segurança, como IP, data/hora, URL solicitada, navegador e informações de erro. Confirmar provedor, dados registrados, finalidade e prazo de retenção. Não afirmar que “nenhum dado é coletado” sem verificar hospedagem, DNS, CDN e monitoramento.
@@ -44,7 +43,7 @@ Esta política poderá ser atualizada. A data da última atualização será ind
 ### Pendências antes da publicação
 - [ ] Identificar responsável e contato.
 - [ ] Identificar hospedagem, DNS, CDN e logs.
-- [ ] Confirmar destino da fonte Google Fonts.
+- [x] Fonte hospedada localmente (sem Google Fonts). Revalidar na produção.
 - [ ] Testar cookies, armazenamento e requisições na versão de produção.
 - [ ] Confirmar ausência/presença de analytics e integrações.
 - [ ] Revisão por adulto responsável e profissional qualificado.

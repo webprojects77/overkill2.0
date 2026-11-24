@@ -6,7 +6,7 @@ Este documento é um plano de verificação, não uma declaração de que todos 
 - README declara parser matemático próprio, sem `eval`.
 - Aplicação descrita como local-first, sem conta e sem servidor para cálculos.
 - Service Worker guarda arquivos estáticos para uso offline.
-- HTML carrega fonte externa via Google Fonts.
+- A fonte “Metal Mania” é servida localmente (`fonts/`), sem Google Fonts.
 Essas observações não substituem auditoria completa do código e da hospedagem.
 
 ## Antes do lançamento
