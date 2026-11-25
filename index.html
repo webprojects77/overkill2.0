@@ -18,6 +18,7 @@
 <symbol id="i-mat" viewBox="0 0 24 24"><path d="M8.5 4H6v16h2.5M15.5 4H18v16h-2.5"/><path d="M9.5 9h.01M14.5 9h.01M9.5 15h.01M14.5 15h.01"/></symbol>
 <symbol id="i-graph" viewBox="0 0 24 24"><path d="M4 3.5v16.5h16.5"/><path d="M6.5 15.5C9 6.5 11.5 6.5 13 12s3 4.5 7-5"/></symbol>
 <symbol id="i-tools" viewBox="0 0 24 24"><path d="M14.6 6.2a4.2 4.2 0 0 0 5.2 5.2L12 18.2 7.6 13.8 15 6.4"/><path d="M4.4 19.6 7.6 16.4"/></symbol>
+<symbol id="i-academy" viewBox="0 0 24 24"><path d="M3 5.5C5 4.5 8 4.5 11.5 6.5v13C8 17.5 5 17.5 3 18.5z"/><path d="M21 5.5C19 4.5 16 4.5 12.5 6.5v13c3.5-2 6.5-2 8.5-1z"/></symbol>
 <symbol id="i-nb" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2.2"/><path d="M9 3v18M12 8h4M12 12h4M12 16h2.5"/></symbol>
 <symbol id="i-oracle" viewBox="0 0 24 24"><path d="M12 3.5l1.9 4.6 4.6 1.9-4.6 1.9L12 16.5l-1.9-4.6-4.6-1.9 4.6-1.9z"/><path d="M19 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
 <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h9.5M17.5 7H20M4 17h2.5M10.5 17H20"/><circle cx="15.5" cy="7" r="2.2"/><circle cx="8.5" cy="17" r="2.2"/></symbol>
@@ -57,6 +58,7 @@
 <button type="button" data-tab="gr" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-graph"/></svg>Gráfico</button>
 <button type="button" data-tab="tl" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-tools"/></svg>Ferramentas</button>
 <button type="button" data-tab="nb" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-nb"/></svg>Notebook</button>
+<button type="button" data-tab="academy" aria-pressed="false"><svg class="ic" aria-hidden="true"><use href="#i-academy"/></svg>Academy</button>
 <button type="button" data-tab="oracle" disabled title="Em breve"><svg class="ic" aria-hidden="true"><use href="#i-oracle"/></svg>Oracle <span class="soon">EM BREVE</span></button>
 </nav>
 
@@ -238,6 +240,12 @@ x^2/4-1</textarea>
 </div>
 </section>
 
+<section id="academy" hidden>
+<div class="screen">
+<div id="acBody" class="academy"></div>
+</div>
+</section>
+
 <section id="help" hidden>
 <div class="screen">
 <div id="hlpBody" class="manual">Carregando o manual…</div>
@@ -256,6 +264,9 @@ x^2/4-1</textarea>
 <script src="src/symbolic.js"></script>
 <script src="src/polynomial.js"></script>
 <script src="src/notebook.js"></script>
+<script src="src/academy-data.js"></script>
+<script src="src/academy-lessons.js"></script>
+<script src="src/academy.js"></script>
 <script src="src/help.js"></script>
 <script src="src/experience.js"></script>
 <script src="src/pwa.js"></script>

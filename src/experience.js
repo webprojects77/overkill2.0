@@ -11,16 +11,17 @@ const MODULES={
   gr:{name:"Gráfico",icon:"i-graph",desc:"Funções, polares e paramétricas",sec:"gr"},
   tl:{name:"Ferramentas",icon:"i-tools",desc:"Unidades, bits, IEEE 754, cores, estatística, álgebra",sec:"tl"},
   nb:{name:"Notebook",icon:"i-nb",desc:"Cálculos em células, salvos no navegador",sec:"nb"},
+  academy:{name:"Academy",icon:"i-academy",desc:"Matemática do zero, em trilha. Aulas com pré-requisitos e exercícios.",sec:"academy"},
   oracle:{name:"Oracle",icon:"i-oracle",desc:"Planejado. Ainda não está disponível.",sec:null,soon:true}
 };
 
 // Perfis: ordem das abas, ferramenta inicial e ordem dos cartões no início.
 const EXPERIENCES={
-  learn:{name:"Aprender",icon:"i-compass",desc:"Gráficos, álgebra e matrizes com foco em entender cada passo.",tabs:["calc","gr","mat","tl","nb"],tool:"al",cards:["calc","gr","mat","tl","nb","oracle"]},
-  work:{name:"Trabalhar",icon:"i-nb",desc:"Notebook, estatística e cálculos que você repete no dia a dia.",tabs:["nb","tl","mat","calc","gr"],tool:"st",cards:["nb","tl","calc","mat","gr","oracle"]},
-  dev:{name:"Desenvolver",icon:"i-tools",desc:"Bits, ponto flutuante IEEE 754, bases numéricas e cores.",tabs:["tl","calc","mat","gr","nb"],tool:"bs",cards:["tl","calc","nb","mat","gr","oracle"]},
-  explore:{name:"Explorar",icon:"i-graph",desc:"Visão geral de tudo. Sem ordem definida.",tabs:["gr","calc","tl","mat","nb"],tool:"sy",cards:["calc","gr","mat","tl","nb","oracle"]},
-  daily:{name:"Uso cotidiano",icon:"i-calc",desc:"Calculadora simples, conversões de unidades e porcentagens.",tabs:["calc","tl","gr","mat","nb"],tool:"un",cards:["calc","tl","gr","mat","nb","oracle"]}
+  learn:{name:"Aprender",icon:"i-compass",desc:"Gráficos, álgebra e matrizes com foco em entender cada passo.",tabs:["calc","gr","mat","tl","nb"],tool:"al",cards:["calc","gr","mat","tl","nb","academy","oracle"]},
+  work:{name:"Trabalhar",icon:"i-nb",desc:"Notebook, estatística e cálculos que você repete no dia a dia.",tabs:["nb","tl","mat","calc","gr"],tool:"st",cards:["nb","tl","calc","mat","gr","academy","oracle"]},
+  dev:{name:"Desenvolver",icon:"i-tools",desc:"Bits, ponto flutuante IEEE 754, bases numéricas e cores.",tabs:["tl","calc","mat","gr","nb"],tool:"bs",cards:["tl","calc","nb","mat","gr","academy","oracle"]},
+  explore:{name:"Explorar",icon:"i-graph",desc:"Visão geral de tudo. Sem ordem definida.",tabs:["gr","calc","tl","mat","nb"],tool:"sy",cards:["calc","gr","mat","tl","nb","academy","oracle"]},
+  daily:{name:"Uso cotidiano",icon:"i-calc",desc:"Calculadora simples, conversões de unidades e porcentagens.",tabs:["calc","tl","gr","mat","nb"],tool:"un",cards:["calc","tl","gr","mat","nb","academy","oracle"]}
 };
 const THEMES={graphite:"Graphite",ember:"Ember",porcelain:"Porcelain",midnight:"Midnight"};
 const DENSITIES={comfortable:"Confortável",compact:"Compacta"};
@@ -67,7 +68,7 @@ function applyPrefs(p){
   // Reordena a navegação: Início fixo à esquerda, módulos na ordem do perfil, Oracle por último.
   const nav=$(".tabs");
   if(nav){
-    const order=["home",...exp.tabs,"oracle"];
+    const order=["home",...exp.tabs,"academy","oracle"];
     order.forEach(k=>{const b=nav.querySelector('button[data-tab="'+k+'"]');if(b)nav.append(b)});
   }
   $("#hello").textContent=exp.name;
@@ -82,7 +83,7 @@ function setTool(p){
 }
 
 function showTab(k){
-  const map={home:"#home",calc:"#calcview",mat:"#mat",gr:"#gr",tl:"#tl",nb:"#nb",help:"#help",ajustes:"#ajustes"};
+  const map={home:"#home",calc:"#calcview",mat:"#mat",gr:"#gr",tl:"#tl",nb:"#nb",help:"#help",ajustes:"#ajustes",academy:"#academy"};
   if(!map[k])return;
   document.querySelectorAll("[data-tab]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.tab===k)));
   Object.keys(map).forEach(key=>{const el=$(map[key]);if(el)el.hidden=key!==k});
